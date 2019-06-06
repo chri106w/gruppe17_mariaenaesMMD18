@@ -1,0 +1,440 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”description” content=”Maria Enaes is a young, Norwegian ceramist living in Copenhagen, Denmark. She has recently made a website with a webshop where you can buy her unique ceramics.”>
+    <title>About Maria Enaes Ceramics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon/192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16x16.png">
+
+    <style>
+
+        /*////ABOUT////*/
+        h1 {
+            font-family: 'viceroyregular';
+            margin-left: 7vw;
+            font-size: 3rem;
+             z-index: 1;
+
+        }
+
+        .container_text {
+            margin-left: 3.5vw;
+        } 
+        
+         .container_text2 {
+            margin-left: 3.5vw;
+        } 
+        
+        .photo_about {
+            width: 104%;
+            margin-left: -2vw;
+
+        }
+
+        .text_about {
+            margin: 10vw 22vw 5vw 4vw;
+            margin-bottom: 30vw;
+        }
+        
+        p {
+            line-height: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        main {
+            margin-top: 17vw;
+        }
+
+        /*////FULLSCREEN////*/
+        .photo_fullscreen {
+            width: 103%;
+            margin-left: -1vw;
+            margin-top: 3vw;
+        }
+
+        /*////WORK////*/
+        h2 {
+            font-family: 'viceroyregular';
+            font-size: 3rem;
+            margin-left: 6vw;
+             z-index: 1;
+        }
+
+        .text_work {
+            margin: 2vw 19vw 7vw 6vw;
+            margin-bottom: 30vw;
+        }
+
+        .photo_work {
+            width: 104%;
+            margin-left: -2vw;
+        }
+
+        /*////MEDIA QUERIES////*/
+
+        @media only screen and (min-width: 700px) {
+
+           
+            main {
+                margin: 0;
+            }
+            /*//ABOUT//*/
+            .grid_container1 {
+                display: grid;
+                margin-top: -10vw;
+                grid-template-areas:
+                    "photo text"
+            }
+
+            .photo_about {
+                grid-area: photo;
+                width: 35vw;
+                margin-top: 17vw;
+                margin-left: 2.5vw;
+                position: absolute;
+                z-index: 1;
+            }
+
+            h1 {
+                position: absolute;
+                margin-left: 45vw;
+                margin-top: 26vw;
+                font-size: 3rem;
+            }
+
+            .container_text {
+                grid-area: text;
+                background-color: white;
+                height: 65vw;
+                width: 55vw;
+                margin-top: 20vw;
+                margin-left: 25vw;
+                padding-left: 10vw;
+                margin-bottom: 10vw;
+                opacity: 0.8;
+
+            }
+
+            .text_about {
+                line-height: 3.2vw;
+                width: 46vw;
+                margin-top: 20vw;
+            }
+            
+
+            /*//WORK//*/
+
+            .grid_container2 {
+                display: grid;
+                grid-template-areas:
+                    "text photo";
+            }
+
+            .photo_work {
+                grid-area: photo;
+                width: 35vw;
+                margin-top: 10vw;
+                position: absolute;
+                z-index: 1;
+                left: 63vw;
+            }
+
+            .container_text2 {
+                grid-area: text;
+                background-color: white;
+                height: 80vw;
+                width: 70vw;
+                margin: 20vw 0vw 10vw 5vw;
+
+            }
+
+            h2 {
+                
+                font-size: 3.5rem;
+                margin-top: 9vw;
+                margin-left: 5vw;
+                margin-bottom: 2vw;
+            }
+
+            .text_work {
+                margin: 8vw 17vw 3vw 5vw;
+            }
+
+            .text_work2 {
+                margin: 10vw -10vw 4vw 20vw;
+            }
+
+        }
+        
+        @media only screen and (min-width: 900px) {
+            
+            .container_text2 {
+                height: 65vw;
+            
+        }
+            
+             .container_text {
+                height: 55vw;
+            
+        }
+            
+            h1 {
+                margin-left: 43vw;
+            }
+        }
+
+
+        @media only screen and (min-width: 1100px) {
+
+
+            h1 {
+                font-size: 4rem;
+                margin-top: 30vw;
+            }
+
+            h2 {
+                font-size: 4rem;
+                margin: 2vw 0vw 0vw 6vw;
+                margin-top: 10vw;
+            }
+
+            .photo_about {
+                margin-top: 15vw;
+            }
+
+            .container_text {
+                margin-top: 22vw;
+                height: 47vw;
+                
+            }
+
+            .text_about {
+                margin-top: 21vw;
+            }
+
+
+            /*//FULLSCREEN//*/
+
+            .photo_fullscreen {
+                width: 100%;
+                margin: 0vw;
+            }
+
+            /*//WORK//*/
+
+            .grid_container2 {
+                width: 100%;
+                overflow: hidden;
+            }
+            
+             .container_text2 {
+                margin-top: 12vw;
+                height: 55vw;
+                width: 65vw;
+            }
+            
+             .photo_work {
+                margin-top: 6vw;
+            }
+
+
+            .text_work {
+                margin-top: 5vw;
+                width: 41vw;
+                margin-left: 6vw;
+            }
+
+        }
+        @media only screen and (min-width: 1300px) {
+            
+            .container_text2 {
+                height: 46vw;
+            }
+            
+            p {
+                line-height: 2rem;
+            }
+            
+            .text_work {
+                width: 40vw;
+                margin-top: 3vw;
+               
+            }
+            
+            .text_about {
+                width: 40vw;
+            }
+
+                h1 {
+                
+                margin-top: 33vw;
+            }
+
+            h2 {
+                margin-top: 9vw;
+            }
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+
+        <ul class="menu">
+            <a href="webshop.html">Shop</a>
+            <a href="about.html"><span style="border-bottom: 0.2px solid black">About me</span></a>
+            <a href="blog.html">Blog</a>
+        </ul>
+
+        <div class="header_mobil">
+            <div class="burgermenu">
+
+                <nav id="menuToggle">
+                    <input type="checkbox" />
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <ul class="burger">
+                        <a class="burger_shop" href="webshop.html">
+                            <li>Shop</li>
+                        </a>
+                        <a class="burger_about" href="about.html">
+                            <li><span style="border-bottom: 2px solid black">About me</span></li>
+                        </a>
+                        <a class="burger_blog" href="blog.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="index.html">
+                        </a>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="shoppingbag">
+            <a href="order.html"></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="abouts"></div>
+        <template id="about">
+
+            <div class="grid_container1">
+                <img src="" class="photo_about" alt="Maria Enæs">
+                <h1></h1>
+                <div class="container_text">
+                    <p class="text_about"></p>
+                </div>
+            </div>
+
+
+            <img src="" class="photo_fullscreen" alt="Maria with products">
+
+
+            <div class="grid_container2">
+                <div class="container_text2">
+                    <h2></h2>
+                    <p class="text_work"></p>
+                </div>
+                <img src="" class="photo_work" alt="Maria at work">
+            </div>
+
+        </template>
+
+        <script>
+            let abouts = []; 
+            let filter = "all"; 
+            document.addEventListener("DOMContentLoaded", hentJson); 
+
+            async function hentJson() {
+
+                const url = "http://christinelykke.dk/kea2/eksamentest/wordpress/wp-json/wp/v2/about/";
+                const myJson = await fetch(url);
+                abouts = await myJson.json();
+                visAbouts();
+                console.log(abouts);
+
+            }
+
+
+            function filtrering() {
+                filter = this.getAttribute("data-category");
+                console.log(filter);
+
+                visAbouts();
+            }
+
+            function visAbouts() {
+
+                let dest = document.querySelector(".abouts");
+                let temp = document.querySelector("#about");
+                dest.innerHTML = "";
+
+                abouts.forEach(about => { 
+                    if (filter == "all" || filter == about.categories) {
+                        let klon = temp.cloneNode(true).content;
+                        klon.querySelector("h1").innerHTML = about.headline_about;
+                        klon.querySelector(".text_about").innerHTML = about.text_about;
+                        klon.querySelector(".photo_about").src = about.photo_about.guid;
+                        klon.querySelector(".photo_fullscreen").src = about.photo_fullscreen.guid;
+                        klon.querySelector("h2").innerHTML = about.headline_work;
+                        klon.querySelector(".text_work").innerHTML = about.text_work;
+                        klon.querySelector(".photo_work").src = about.photo_work.guid;
+                        dest.appendChild(klon);
+
+                        dest.lastElementChild.addEventListener("click", () => {
+
+                            visSingle(product);
+
+                        })
+                    }
+                })
+
+            }
+
+            function visSingle(product) {
+
+                console.log(product.description);
+                document.querySelector("#popup #description").innerHTML = product.description;
+                document.querySelector("#popup #popup_h2").innerHTML = product.headline;
+                document.querySelector("#popup .price_popup").innerHTML = product.price;
+                document.querySelector("#popup .photo_popup").src = product.photo.guid;
+                document.querySelector("#popup").style.display = "block";
+                document.querySelector(".button_buy").style.display = "block";
+                document.querySelector("footer").style.display = "none";
+                document.querySelector("#popup #close").addEventListener("click", close);
+            }
+
+            function close() {
+                document.querySelector("#popup").style.display = "none";
+                document.querySelector("footer").style.display = "block";
+
+
+            }
+        </script>
+
+    </main>
+
+    <footer>
+        <div class="container_footer">
+            <a class="footer_newsletter" href="newsletter.html">STAY UP TO DATE - SIGN UP TO MY NEWSLETTER <span style="border-bottom: 2px solid black">HERE</span></a>
+            <p class="footer_mail">enaes@gmail.com</p>
+            <p class="footer_tlf">tlf. 00 00 00 00</p>
+        </div>
+        <a class="instaicon" href="https://www.instagram.com/maria.enaes/"></a>
+    </footer>
+
+</body>
+
+</html>

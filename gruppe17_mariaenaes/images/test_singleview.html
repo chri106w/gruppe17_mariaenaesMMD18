@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    body {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .style {
+        border: 2px #000 solid;
+    }
+
+    img {
+        width: 90%;
+    }
+
+    .menu {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .valgt {
+        background-color: red;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    #popup {
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background-color: hsla(0, 15%, 48%, 0.5);
+        display: none;
+    }
+
+    #luk {
+        position: fixed;
+        right: 2rem;
+        padding-right: 2rem;
+    }
+
+    #indhold {
+        min-height: 50vh;
+        background-color: white;
+        width: 70vw;
+        margin: 4rem auto;
+    }
+
+    #luk button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+    }
+
+    @media only screen and (min-width: 600px) {
+
+    #liste {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 3px;
+    }
+
+        }
+
+    @media only screen and (min-width: 800px) {
+
+    #liste {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    }
+
+</style>
+
+
+<body>
+    <h1>Alle</h1>
+    <div class="menu">
+         <button class="filter valgt" data-hold="alle">Alle</button>
+         <button class="filter" data-hold="a">Hold A</button>
+         <button class="filter" data-hold="b">Hold B</button>
+    </div>
+
+    <div id="liste">
+    </div>
+
+    <div id="popup">
+        <div id="luk">
+            <button> X </button>
+        </div>
+        <div id="indhold"></div>
+    </div>
+
+
+    <script>
+
+        let filter="alle";
+        let allePersoner = [];
+
+
+         document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            hentJson();
+
+            async function hentJson() {
+                let jsonData = await
+                fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c");
+                allePersoner =  await jsonData.json();
+                /*allePersoner.sort((a,b) => {
+                    return(a.alder - b.alder);
+                });*/
+                allePersoner.sort((a,b) =>{
+                    return a.navn.localeCompare(b.navn);
+                });
+                visPerson();
+            }
+
+            function visPerson() {
+                let destination = document.querySelector("#liste");
+                destination.innerHTML ="";
+                allePersoner.forEach(person => {
+                    if(filter=="alle" || filter == person.hold){
+                        let template = `
+                            <div class="style">
+                                <h2>${person.navn}</h2> <p>https://github.com/${person.github}</p>
+                                <img src = ${person.billede}> <p>${person.alder}</p> <p>${person.køn}</p>
+                                <p>${person.email}</p>
+                                <p>${person.hold}</p>
+                                <p>${person.historie}</p>
+                            </div>`;
+
+                        destination.insertAdjacentHTML("beforeend", template);
+                        destination.lastElementChild.addEventListener("click", () =>{
+                            visSingle(person);
+
+                        });
+
+
+                        function visSingle() {
+                            document.querySelector("#indhold").innerHTML = `
+                               <div class="style">
+                                    <h2>${person.navn}</h2>
+                                    <img class="billede" src = ${person.billede}> alt="${person.navn}">
+                                    <p>GitHub:
+                                        <a href="https://github.com/${person.github}" target="-blank">${person.github};</a>
+                                    </p>
+                                    <p>Hold: ${person.hold}, Alder:${person.alder}</p>
+                                    <h3>${person.navn}'s historie</h3>
+                                    <p>${person.alder}</p> <p>${person.køn}</p>
+                                </div>`;
+
+                            document.querySelector("#popup").style.display="block";
+                            document.querySelector("#popup #luk").addEventListener("click", close);
+                        }
+
+                        function close () {
+                            document.querySelector("#popup").style.display = "none";
+                        }
+
+                        }
+                    })
+                }
+
+     
+        }
+
+
+
+    </script>
+</body>
+
+</html>

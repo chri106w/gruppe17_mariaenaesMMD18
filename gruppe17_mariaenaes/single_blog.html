@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon/192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16x16.png">
+</head>
+
+<style>
+
+    .container_update {
+       margin-top: 20vw; 
+    }
+    
+    #single {
+        width: 100vw;
+        
+    }
+
+    #update {
+        height: 100vw;
+    }
+
+    #time {
+        margin: 5vw;
+        font-family: 'viceroyregular';
+        font-size: 2.5rem;
+        color: #298545;
+    }
+
+    h2 {
+        margin: 5vw;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .photo {
+        width: 90vw;
+        height: 80vw;
+        margin: 5vw 5vw 0vw 5vw;
+    }
+
+    .text {
+        margin: 5vw;
+        line-height: 2rem;
+    }
+
+    #back button {
+        background: transparent;
+        border: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin: 0vw 0vw 5vw 4vw;
+        letter-spacing: 0.15rem;
+        color: #298545;
+        font-size: 0.8rem;
+    }
+
+    #back button:hover {
+        color: white;
+    }
+    
+    @media only screen and (min-width: 650px) {
+        .container_update {
+            margin-top: 40px;
+        }
+    }
+
+    @media only screen and (min-width: 700px) {
+
+        .container_update {
+            display: grid;
+            margin-top: 40px;
+            grid-template-areas:
+                "photo content"
+        }
+
+        .photo {
+            grid-area: photo;
+            width: 50vw;
+            height: 40vw;
+            margin-top: 2vw;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .container_content {
+            grid-area: content;
+            background-color: white;
+            margin: 28vw 10vw 5vw 18vw;
+            padding: 2vw;
+            opacity: 0.8;
+        }
+
+        #time {
+            text-align: right;
+            font-size: 2.6rem;
+            margin: 0 4vw 0 0;  
+        }
+        
+
+        h2 {
+            margin-top: 8vw;
+            margin-bottom: -2vw;
+            font-size: 2.1rem;
+            text-align: center;
+        }
+
+        #back button {
+            margin: 0vw 0vw 5vw 18vw;
+            font-size: 1rem;
+        }
+
+    }
+
+
+    @media only screen and (min-width: 900px) {
+
+        h2 {
+            font-size: 2.6rem;
+            margin-top: 7vw;
+        }
+
+        #time {
+            font-size: 3rem;
+            margin-top: 1vw;
+        }
+
+        #back button {
+            font-size: 1.2rem;
+        }
+        
+        .text p {
+            margin-top: 0vw;
+        }
+    }
+
+    @media only screen and (min-width: 1100px) {
+
+        h2 {
+            margin-bottom: -2vw;
+        }
+
+        #time {
+            font-size: 3.8rem;
+            margin: 0;
+        }
+
+
+    }
+    
+    @media only screen and (min-width: 1400px){
+        
+        img.photo {
+            margin-left: 5.7vw;
+        }
+        
+        .container_content {
+            margin-top: 32vw;
+            margin-right: 19vw;
+        }
+    }
+
+</style>
+
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+
+        <ul class="menu">
+            <a href="webshop.html">Shop</a>
+            <a href="about.html">About me</a>
+            <a href="blog.html">Blog</a>
+        </ul>
+
+
+        <div class="header_mobil">
+            <div class="burgermenu">
+
+                <nav id="menuToggle">
+                    <input type="checkbox" />
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <ul class="burger">
+                        <a class="burger_shop" href="webshop.html">
+                            <li>Shop</li>
+                        </a>
+                        <a class="burger_about" href="about.html">
+                            <li>About me</li>
+                        </a>
+                        <a class="burger_blog" href="blog.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="index.html">
+                        </a>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="shoppingbag">
+            <a href="order.html"></a>
+        </div>
+    </header>
+
+    <div id="single">
+        <div id="content"></div>
+        <template id="update">
+            <div class="arrow"></div>
+            <section class="container_update">
+                <div class="img_container">
+                    <img src="" class="photo" alt="Update photo">
+                </div>
+                <div class="container_content">
+                    <p id="time"></p>
+                    <h2></h2>
+                    <p class="text"></p>
+                </div>
+            </section>
+        </template>
+    </div>
+
+    <script>
+        let urlParams = new
+        URLSearchParams(window.location.search)
+        let date = urlParams.get("date");
+        console.log(date);
+        let allUpdates = [];
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            hentJson();
+
+            async function hentJson() {
+                let jsonData = await
+                fetch("http://christinelykke.dk/kea2/eksamentest/wordpress/wp-json/wp/v2/update/");
+                allUpdates = await jsonData.json();
+
+                visUpdate();
+            }
+
+
+
+            function visUpdate() {
+
+                let dest =
+                    document.querySelector("#content");
+
+                let temp = document.querySelector("#update");
+                dest.innerHTML = "";
+
+                allUpdates.forEach(update => {
+                    if (date == update.date) {
+
+                        let klon =
+                            temp.cloneNode(true).content;
+                        klon.querySelector("h2").innerHTML = update.headline;
+                        klon.querySelector("#time").innerHTML = update.time;
+                        klon.querySelector(".text").innerHTML = update.text;
+                        klon.querySelector(".photo").src = update.photo.guid;
+                        dest.appendChild(klon);
+
+                        //dest.insertAdjacentHTML("beforeend", temp);
+
+                        document.querySelector("#back").addEventListener("click", () => {
+                            location.href = "blog.html";
+                        });
+                    }
+
+
+
+                });
+            }
+
+        }
+    </script>
+
+
+    <footer>
+        <div class="container_footer">
+            <a class="footer_newsletter" href="">STAY UP TO DATE - SIGN UP TO MY NEWSLETTER <span style="border-bottom: 2px solid black">HERE</span></a>
+            <p class="footer_mail">enaes@gmail.com</p>
+            <p class="footer_tlf">tlf. 00 00 00 00</p>
+        </div>
+        <a class="instaicon" href="https://www.instagram.com/maria.enaes/"></a>
+    </footer>
+
+
+
+
+</body>
+
+</html>

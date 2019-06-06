@@ -1,0 +1,420 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”description” content=”Ceramist Maria Enaes is writing blogposts on her blog about her pottery, ceramics, ceramics markets and her techniques.”>
+    <title>Maria Enaes Ceramics - Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon/192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16x16.png">
+
+</head>
+
+<style>
+
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    h1 {
+        margin: 22vw 0 0 0;
+        text-align: center;
+    }
+
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
+        margin-top: 20px;
+    }
+
+    #time {
+        font-family: 'viceroyregular';
+        font-size: 3rem;
+        color: black;
+        margin-top: 28px;
+        margin-bottom: 40px;
+    }
+
+    .intro {
+        margin: 0 6vw 0 0;
+    }
+    
+    
+
+    .updates {
+        margin: 0 5vw 0 5vw;
+        line-height: 1.8rem;
+    }
+    
+      img.photo {
+        display: block;
+        width: 100%;
+    }
+
+    .container_update {
+        cursor: pointer;
+        margin-top: 34px;
+        margin-bottom: 72px;
+    }
+
+    .img_container {
+        position: relative;
+        overflow: hidden;
+         width: 90vw;
+        height: 60vw;
+    }
+
+
+    .read_more {
+        letter-spacing: 0.3rem;
+        
+    }
+    
+    .read_more a:hover {
+        border-bottom: 0.2px solid black;
+        
+    }
+
+    
+    /*////FILTERMENU////*/
+
+    #category {
+        justify-content: space-around;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0;
+   
+    }
+
+    #filtermenu {
+        padding: 1vw 1vw 1vw 3vw;
+    }
+    
+    .filter {
+        cursor: pointer;
+    }
+    
+    .filter:hover {
+        border-bottom: 0.2px solid black;
+    }
+
+    button {
+        display: block;
+        font-size: 1rem;
+        font-style: normal;
+        color: black;
+        background: transparent;
+        border-style: none;
+        text-transform: uppercase;
+        letter-spacing: 0.25rem;
+        font-size: 0.85rem;
+        margin-top: 6vw;
+    }
+    
+      @media screen and (min-width: 650px) {
+
+
+         h1 {
+           display: none;
+         }
+         
+    }
+
+    @media only screen and (min-width: 795px) {
+
+        
+        #category {
+           width: 7rem;
+            padding: 1vw 6vw 1vw 1vw;
+            margin-top: 4vw;
+            border: 1px #797778 solid;
+            background-image: url(images/baggrund.png);
+            position: fixed;
+            justify-content: flex-start;
+        }
+        
+
+        button {
+            margin: 1rem;
+        }
+        
+        #filtermenu {
+            margin-top: 0vw;
+        }
+
+        .updates {
+            margin-left: 14rem;
+        }
+        
+        
+        .img_container {
+         width: 60vw;
+        height: 40vw;
+    }
+
+    }
+    
+    @media only screen and (min-width: 900px) {
+        #category {
+            padding: 1vw 5vw 1vw 1vw;
+        }
+        
+    }
+
+    @media only screen and (min-width: 1100px) {
+        
+        .updates {
+        min-height: 48vw;
+        }
+        
+        .container_update {
+            height: 20vw;
+            margin-left: 2vw;
+            margin-bottom: 70px;
+            display: grid;
+            grid-template-areas: 
+                "photo headline headline"
+                "photo intro intro"
+                "photo read read"
+        }
+        
+        .photo {
+            grid-area: photo;
+        }
+        
+        .img_container {
+            width: 21vw;
+            height: 20vw;
+            
+        }
+        
+        .container_headline {
+            height: 2vw;
+            margin-left: 4vw;
+            grid-area: headline;
+            display: grid;
+            grid-template-areas: 
+                "h2 time"
+        }
+        
+        #time {
+            grid-area: time;
+            font-size: 2.6rem;
+            margin-top: 0vw;
+            text-align: right;
+        }
+        
+        h2 {
+            grid-area: h2;
+            margin: 0;
+            padding: 0;
+            
+            
+        }
+        
+        .intro {
+            grid-area: intro;
+            margin: 5vw 2vw 2vw 4vw;
+            font-size: 1rem;
+            line-height: 1.8rem;
+        }
+        
+        .read_more {
+            grid-area: read;
+            text-align: right;
+            font-size: 1rem;
+        }
+
+    }
+
+
+    @media only screen and (min-width: 1300px) {
+        
+        .container_update {
+            margin-left: 5vw;
+            margin-right: 8vw;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+        }
+        
+            
+    .update_headline {
+        width: 27vw;
+    }
+    }
+    
+    @media only screen and (min-width: 1400px) {
+        
+        h2 {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    }
+    
+     @media only screen and (min-width: 1550px) {
+        
+         .container_update {
+             margin-right: 10vw;
+         }
+    }
+    
+
+</style>
+
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+
+        <ul class="menu">
+            <a href="webshop.html">Shop</a>
+            <a href="about.html">About me</a>
+            <a href="blog.html"><span style="border-bottom: 0.2px solid black">Blog</span></a>
+        </ul>
+
+
+        <div class="header_mobil">
+            <div class="burgermenu">
+
+                <nav id="menuToggle">
+                    <input type="checkbox" />
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <ul class="burger">
+                        <a class="burger_shop" href="webshop.html">
+                            <li>Shop</li>
+                        </a>
+                        <a class="burger_about" href="about.html">
+                            <li>About me</li>
+                        </a>
+                        <a class="burger_blog" href="blog.html">
+                            <li><span style="border-bottom: 2px solid black">Blog</span></li>
+                        </a>
+                        <a href="index.html">
+                        </a>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="shoppingbag">
+            <a href="order.html"></a>
+        </div>
+    </header>
+
+    <main>
+        <h1>BLOG</h1>
+
+        <div id="filtermenu">
+            <!--data-category referer til de kategorier, vi har sat opp på Wordpress-->
+            <div id="category">
+                <button class="filter" data-category="all">All</button><br>
+                <button class="filter" data-category="Products">Products</button><br>
+                <button class="filter" data-category="Inspiration">Inspiration</button><br>
+                <button class="filter" data-category="Ceramics">Ceramics</button>
+            </div>
+        </div>
+
+        <div class="updates"></div>
+        <template id="update">
+            <section class="container_update">
+                <div class="img_container">
+                    <img src="" class="photo" alt="Update photo">
+                </div>
+                <div class="container_content">
+                    <div class="container_headline">
+                        <h2 class="update_headline"></h2>
+                        <p id="time"></p>
+                    </div>
+                    <p class="intro">
+                    </p>
+                    <div class="read_more">
+                        <a src="">READ MORE</a>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <script>
+            let updates = [];
+            let filter = "all";
+            document.addEventListener("DOMContentLoaded", hentJson);
+
+            async function hentJson() {
+
+                const url = "http://christinelykke.dk/kea2/eksamentest/wordpress/wp-json/wp/v2/update/";
+                const myJson = await fetch(url);
+                updates = await myJson.json();
+                visUpdates();
+                console.log(updates);
+
+            }
+
+            document.querySelectorAll(".filter").forEach(knap => {
+                knap.addEventListener("click", filtrering);
+            });
+
+            function filtrering() {
+                filter = this.getAttribute("data-category");
+                console.log(filter);
+
+                visUpdates();
+            }
+
+            function visUpdates() {
+
+                //Vi har nedenunder brugt variabler for at tildele verdier for 'dest' og 'temp' document.QuerySelector kaller alltid på et DOM, som i dette tildelle er .updates og #update
+                let dest = document.querySelector(".updates");
+                let temp = document.querySelector("#update");
+                dest.innerHTML = "";
+
+                updates.forEach(update => {
+                    //if bruges når det skal utføres en bestemt handling hvis betingelsen er oppfylt. Her betyr det at alle updates skal klones hvis all er filtrert
+                    if (filter == "all" || filter == update.categories) {
+                        //cloneNode betyr at kloner de ulike fields i Wordpress til hver nyt blogopslag
+                        //innerHTML er for at det skal leses at eksempelvis h2 er at finde i html
+                        let klon = temp.cloneNode(true).content;
+                        klon.querySelector("h2").innerHTML = update.headline;
+                        klon.querySelector("#time").innerHTML = update.time;
+                        klon.querySelector(".intro").innerHTML = update.intro;
+                        klon.querySelector(".photo").src = update.photo.guid;
+                        dest.appendChild(klon);
+
+                        //Det nedenunder gjør at man ved at klike, kommer ind til singleview (hvorfor date?) lastElementChild... Det er en arrow-funksjon
+                        dest.lastElementChild.addEventListener("click", () => {
+
+                            location.href = "single_blog.html?date=" + update.date;
+
+                        });
+                    }
+                })
+
+            }
+
+        </script>
+
+    </main>
+
+    <footer>
+        <div class="container_footer">
+            <a class="footer_newsletter" href="newsletter.html">STAY UP TO DATE - SIGN UP TO MY NEWSLETTER <span style="border-bottom: 2px solid black">HERE</span></a>
+            <p class="footer_mail">enaes@gmail.com</p>
+            <p class="footer_tlf">tlf. 00 00 00 00</p>
+        </div>
+        <a class="instaicon" href="https://www.instagram.com/maria.enaes/"></a>
+    </footer>
+
+</body>
+
+
+</html>

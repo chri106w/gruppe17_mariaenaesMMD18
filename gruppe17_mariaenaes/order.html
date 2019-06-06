@@ -1,0 +1,270 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enaes</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .shoppingbag1 a {
+    width: 6vw;
+    height: 8vw;
+    background-size: 100%;
+    position: absolute;
+    grid-area: bag;
+    background-image: url("images/bagicon1.png");
+    display: block;
+    margin-top: 3vw;
+    margin-left: 45px;
+}
+
+        h1 {
+            font-family: 'viceroyregular';
+            margin: 25vw 0vw 0vw 20vw;
+        }
+
+        p {
+            font-family: 'Montserrat', sans-serif;
+
+        }
+
+        img {
+            max-width: 65%;
+            margin: 7vw 0vw 2vw 17vw;
+        }
+
+        .button_buy {
+            grid-area: buy;
+            text-align: center;
+            border: 0.1px #000 solid;
+            font-size: 1vw;
+            max-width: 30vw;
+            height: 7vw;
+            margin: 0vw 0vw 20vw 50vw;
+            padding: 2vw 5vw 2vw 4vw;
+        }
+
+        .button_buy a {
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .info_container {
+            margin: 0vw 13vw 7vw 17vw;
+        }
+
+        .info_headline p {
+            font-size: 1.5rem;
+            padding-bottom: 2vw;
+            border-bottom: 0.3px solid black;
+        }
+
+        .info_total p {
+            margin: 5vw 0vw 5vw;
+        }
+
+        .total {
+            border-top: 0.1px #000 solid;
+            width: 20vw;
+
+        }
+
+        @media only screen and (min-width: 650px) {
+
+         .shoppingbag1 a {
+        width: 35px;
+        height: 47px;
+        right: 0;
+        top: 0;
+        margin-top: 35px;
+        grid-area: bag;
+    }
+            
+            h1 {
+                margin: 5vw 0vw 0vw 46vw;
+            }
+
+
+            .info_headline p {
+                font-size: 1.2rem;
+            }
+
+            img {
+                max-width: 40%;
+                margin: 7vw 0vw 0vw 3vw;
+            }
+
+            .info_container {
+                position: absolute;
+                width: 50vw;
+                top: 27vw;
+                left: 30vw;
+            }
+
+
+            .info_total p {
+                margin: 4vw 0vw 3vw;
+            }
+
+            .button_buy {
+                max-width: 25vw;
+                max-height: 4vw;
+                margin: 2vw 0vw 20vw 60vw;
+            }
+        }
+
+        @media only screen and (min-width: 900px) {
+
+
+
+            h1 {
+                margin: 13vw 0vw 0vw 49vw;
+                font-size: 3.5rem;
+
+            }
+
+            img {
+                margin: 3vw 0vw 0vw 4vw;
+            }
+
+            .info_container {
+                background-color: white;
+                opacity: 0.8;
+                width: 40vw;
+                padding: 3vw;
+                padding: 20vw 5vw 25vw 17vw;
+                margin: 15vw 0vw 0vw 3vw;
+                top: 3vw;
+                z-index: -1;
+            }
+
+            .button_buy {
+                max-width: 17vw;
+                max-height: 3vw;
+                margin: 0vw 0vw 20vw 60vw;
+            }
+
+
+            .info_headline p {
+                font-size: 1.5rem;
+            }
+
+        }
+
+
+        @media only screen and (min-width: 1200px) {
+
+            img {
+                max-width: 27%;
+                margin: 0vw 0vw 0vw 10vw;
+            }
+
+            h1 {
+                font-size: 4rem;
+                margin: 15vw 0vw 0vw 40vw;
+            }
+
+            .info_container {
+                width: 35vw;
+                padding: 3vw;
+                padding: 14vw 10vw 15vw 10vw;
+                margin: 17vw 0vw 0vw 3vw;
+            }
+
+            .button_buy {
+                max-width: 10vw;
+                max-height: 1.5vw;
+                margin: 6vw 0vw 10vw 60vw;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+
+        <ul class="menu">
+            <a href="webshop.html">Shop</a>
+            <a href="about.html">About me</a>
+            <a href="blog.html">Blog</a>
+        </ul>
+
+
+        <div class="header_mobil">
+            <div class="burgermenu">
+
+                <nav id="menuToggle">
+                    <input type="checkbox" />
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <ul class="burger">
+                        <a class="burger_shop" href="webshop.html">
+                            <li>Shop</li>
+                        </a>
+                        <a class="burger_about" href="about.html">
+                            <li><span style="border-bottom: 2px solid black">About me</span></li>
+                        </a>
+                        <a class="burger_blog" href="blog.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="index.html">
+                        </a>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="shoppingbag1">
+            <a href="order.html"></a>
+        </div>
+    </header>
+
+    <main>
+
+
+        <h1>YOUR BAG</h1>
+        <img src="images/vase04.png" alt="Maria Enaes vase">
+
+        <div class="info_container">
+            <div class="info_headline">
+                <p>Vase 4/5, Fall 2018 <br> <br> 500kr</p>
+
+            </div>
+            <div class="info_total">
+                <p>Subtotal: 500 kr</p>
+                <p>Shipping: 40 kr</p>
+                <div class="total">
+                    <p>Total: 540 kr</p>
+                </div>
+            </div>
+        </div>
+        <div class="button_buy">
+            <a href="">CHECK OUT</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container_footer">
+            <a class="footer_newsletter" href="">STAY UP TO DATE - SIGN UP TO MY NEWSLETTER <span style="border-bottom: 2px solid black">HERE</span></a>
+            <p class="footer_mail">enaes@gmail.com</p>
+            <p class="footer_tlf">tlf. 00 00 00 00</p>
+        </div>
+        <div class="instaicon">
+            <a href="https://www.instagram.com/maria.enaes/"></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

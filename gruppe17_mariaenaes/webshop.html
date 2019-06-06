@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”description” content=”Maria Enaes webshop is full of interesting, unique pottery. Her ceramics are handmade and one of a kind.”>
+    <title>Maria Enaes Ceramics - Webshop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon/192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16x16.png">
+
+    <style>
+
+        h1 {
+            text-align: center;
+            margin-top: 22vw;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;   
+        }
+
+        .order {
+            text-align: center;
+            font-size: 0.9rem;
+            margin: 10vw;
+        }
+        
+        p.order {
+            font-size: 1.5rem;
+            margin: 4vw 5vw 2vw 5vw;
+        }
+        
+        button { /*Styling som er fælles for alle buttons skrives her, for at følge DRY-principet*/
+            border-style: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+
+        /*////FILTERMENU - 'ALL', 'MEDIUM' OG 'SMALL'////*/
+
+        #categories {
+            display: flex; /*For at 'all', 'small' og 'medium' skal være på linje med hinanden*/
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+       
+
+        button.filter {
+            font-weight: 100;
+            letter-spacing: 0.25rem;
+            font-size: 0.85rem;
+            margin: 30px 6vw  15px 6vw;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        
+        .filter:hover {
+        border-bottom: 0.2px solid black;
+    }
+
+
+        /*////PRODUCTS - ALLE DE ULIKE VASE////*/
+
+        .products {
+            padding: 1vw 6vw;
+        }
+
+        .container_product {
+            cursor: pointer;
+            padding-top: 2vw;
+            padding-bottom: 10vw;
+        }
+
+        img.photo {
+            max-width: 100%;
+            display: block;
+            border: 2px solid white;
+        }
+
+        
+        /*///POPUP - ÅBNES, NÅR DET KLIKKES PÅ EN PERSON///*/
+        
+        #popup {
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: fixed; /*Popup-vinduet skal placere sig over det andre indholdet på siden*/
+            background-color: rgba(255, 255, 255, 0.95);
+            display: none; /*Popup-vinduet er som udgangspunkt lukket*/
+            overflow: scroll;
+            line-height: 1.8rem;
+        }
+
+        #close { /*Container-element for luk-knappen*/
+            position: fixed;
+            right: 3vw;
+            top: 3vw;
+        }
+
+        #close button {
+            font-size: 1.5rem;
+            padding: 1vw 2.5vw;
+            z-index: 2;
+        }
+
+        #popup_h2 {
+            text-align: center;
+            margin: 7vw;
+        }
+
+        img.photo_popup {
+            width: 70%;
+            margin: 10vw 0vw 0vw 11vw;
+        }
+        
+        #description {
+            padding: 0vw 11vw 1vw 11vw;
+        }
+        
+        .price_popup {
+            padding: 0vw 11vw 1vw 11vw;
+            font-size: 2rem;
+        }
+
+        
+        .buy_container {
+            position: relative;
+        }
+
+        .button_buy {
+            position: absolute;
+            top: 0;
+            left: 50vw;
+            text-align: center;
+            border: 0.1px #000 solid;
+            height: 30px;
+            width: 170px;
+            padding: 5px;
+        }
+
+        .button_buy a {
+            font-size: 1.2rem;
+        }
+
+        /*///HOVER - OVERLAY PHOTO TIL PRODUKTERNE, NÅR MAN HOVER OVER BILLEDE////*/
+
+        .hover_container {
+            position: relative;
+        }
+
+        .overlay_container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+        }
+
+        /*////MEDIA QUERIES////*/
+
+        @media only screen and (min-width: 600px) {
+
+           
+
+            /*//PRODUCTS//*/
+            .products {
+                grid-gap: 1.5rem;
+                display: grid;
+                grid-template-columns: auto auto;/*Sådan at to produkter kommer vedsiden af hindanden*/
+                margin-top: 0vw;
+                margin-bottom: 5vw;
+            }
+
+            h2 {
+                padding-top: 1vw;
+                max-height: 3vw;
+                min-height: 3vw;
+                font-size: 1rem;
+                text-align: left;
+            }
+            
+            .container_product {
+                 padding-bottom: 8vw;
+            }
+            
+            /*//POPUP//*/
+            
+            .buttun_buy a {
+                padding: 2vw;
+            }
+
+            #popup h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media only screen and (min-width: 650px) {
+            h1 {
+                display: none; /*Overskrift skal forsvinde, når nav kommer til syne, og man kan se hvilken side man befinder seg på, udifra underscore*/
+            }
+        
+            /*//POPUP//*/
+            
+            #popup h2 {
+                font-size: 1.5rem;
+            }
+
+            img.photo_popup {
+                margin: 7vw 0vw 0vw 2vw;
+                width: 35vw;
+            }
+
+            .info_container {
+                margin: 0vw 0vw 0vw 25vw;
+                padding: 0vw;
+                left: 2vw;
+                top: 5vw;
+                position: absolute; 
+                width: 60vw;
+            }
+            
+            #popup {
+                height: 65vw;
+                top: 5vw;
+            }
+
+            #close {
+                margin-top: 10vw;
+            }
+            
+            .price_popup  {
+                margin-left: 0vw;
+                width: 2vw;   
+            }
+            
+            .button_buy {
+                left: 30vw;
+                
+            }
+            
+            .button_buy a {
+                padding: 1px;
+            }
+            
+            #popup p {
+                margin-left: 2vw;
+            }
+            
+            #description {
+                padding: 0vw 0vw 0vw 9vw;
+            }
+        }
+        
+        @media only screen and (min-width: 900px) {
+            
+            #popup {
+                height: 55vw;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+
+            /*//PRODUCTS//*/
+            .products {
+                grid-template-columns: auto auto auto auto;/*Sådan at fire produkter kommer vedsiden af hindanden*/
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+            
+            .container_product {
+                padding-bottom: 0vw;
+            }
+
+            /*//POPUP//*/
+
+            #popup {
+                height: 32vw;
+                top: 8vw;
+            }
+
+            #popup_h2 {
+                font-size: 2.5rem;
+                margin: 0vw 0vw 0vw 0vw;
+                padding: 0;
+                
+            }
+
+            img.photo_popup {
+                margin-left: 6vw;
+                margin-top: 1vw;
+                width: 25vw;
+            }
+
+            #close {
+                top: 0vw;
+            }
+
+            .button_buy {
+                height: 30px;
+                width: 170px;
+                padding: 5px;
+                left: 45vw;
+            }
+            
+            .products {
+                padding-bottom: 10vw;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+
+        <!-- Den meny der kommer opp, efter 650px -->
+        <ul class="menu">
+            <a href="webshop.html"><span style="border-bottom: 0.2px solid black">Shop</span></a>
+            <a href="about.html">About me</a>
+            <a href="blog.html">Blog</a>
+        </ul>
+
+
+        <!-- Burgermenu, som er der før 650px -->
+        <div class="header_mobil">
+            <div class="burgermenu">
+
+                <nav id="menuToggle">
+                    <input type="checkbox" />
+                    <!--Span bruges til at lave tre sorte stræker til burgeren-->
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <ul class="burger">
+                        <a class="burger_shop" href="webshop.html">
+                            <li><span style="border-bottom: 2px solid black">Shop</span></li>
+                        </a>
+                        <a class="burger_about" href="about.html">
+                            <li>About me</li>
+                        </a>
+                        <a class="burger_blog" href="blog.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="index.html">
+                        </a>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+        <div class="shoppingbag">
+            <a href="order.html"></a>
+        </div>
+    </header>
+
+    <main>
+
+        <h1>SHOP</h1>
+
+        <p class="order">Product not in stock? Send me an email with your order!</p>
+
+        <div id="filtermenu">
+            <div id="categories">
+                <!--Data-categories referer til de kategorier vi har gitt forskjellige vaser i Wordpress-->
+                <button class="filter" data-categories="All">All</button><br>
+                <button class="filter" data-categories="Small">Small</button><br>
+                <button class="filter" data-categories="Medium">Medium</button><br>
+            </div>
+        </div>
+
+        <div class="products"></div>
+        <!--Tom liste, her skal produkterne dynamisk indlæses -->
+        <template id="product">
+            <section class="container_product">
+                <div class="hover_container">
+                    <img src="" class="photo" alt="Product photo">
+                    <div class="overlay_container">
+                        <div class="overlay_photo"></div>
+                    </div>
+                </div>
+                <h2></h2>
+                <p class="price"></p>
+            </section>
+        </template>
+
+        <div id="popup">
+            <!-- Alt som vises i popup-vindiet-->
+            <div id="close">
+                <button> X </button>
+            </div>
+            <img src="" class="photo_popup" alt="Product photo">
+
+            <div class="info_container">
+                <h2 id="popup_h2"></h2>
+                <p id="description"></p>
+                <div class="buy_container">
+                    <p class="price_popup"></p>
+                    <div class="button_buy">
+                        <a href="order.html">ADD TO BAG</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            let products = []; //tomt array, her lægges indholdet fra json-filen
+            let filter = "All"; //"all" skal vises som udgangspunkt
+            document.addEventListener("DOMContentLoaded", hentJson); //Json hentes, når DOM (html) er loadet
+            async function hentJson() //json-filen læses, produktobjektene legges i produkter (det tomme array), visProducts kaldes
+            {
+                const url = "http://christinelykke.dk/kea2/eksamentest/wordpress/wp-json/wp/v2/product/?per_page=99";
+                const myJson = await fetch(url);
+                products = await myJson.json();
+
+                visProducts();
+                console.log(products);
+            }
+
+            document.querySelectorAll(".filter").forEach(knap => {
+                knap.addEventListener("click", filtrering);
+            });
+
+            function filtrering() //får værdi efter "data-categories"
+            {
+                filter = this.getAttribute("data-categories");
+                console.log(filter);
+
+                visProducts();
+            }
+
+            function visProducts() {
+
+                let dest = document.querySelector(".products"); //Tilbage til den tomme liste i html
+                let temp = document.querySelector("#product");
+                dest.innerHTML = ""; //dest nullstilles/tømmes
+
+                products.forEach(product => { //Gennemgår produkt for produkt
+                    if (filter == "All" || filter == product.categories) {
+                        //cloneNode betyr at vi kloner det indhold som findes i vores json
+                        let klon = temp.cloneNode(true).content;
+                        klon.querySelector("h2").innerHTML = product.headline;
+                        klon.querySelector(".price").innerHTML = product.price;
+                        klon.querySelector(".photo").src = product.photo.guid;
+                        let productId = "id" + product.id;
+                        klon.querySelector(".photo").classList.add(productId)
+                        dest.appendChild(klon);
+
+                        dest.lastElementChild.addEventListener("click", () => {
+
+                            visSingle(product); //Når det klikkes, kommer man til et popup-vindu
+
+                        })
+
+                        //changeImage når mouseover: bytter til overlay-photo
+                        dest.lastElementChild.addEventListener("mouseover", () => {
+
+                            changeImage(productId, product.photo_overlay.guid);
+                        })
+                        //Man behøver også en "mouseout", hvis man vil have at billedet forandre seg tilbage til det oprindlige
+                        dest.lastElementChild.addEventListener("mouseout", () => {
+
+                            changeImageBack(productId, product.photo.guid);
+                        })
+                    }
+                })
+
+            }
+
+            function changeImage(elem, image) //Den function som ændrer til overlay-photo med mouseover
+            {
+                console.log(elem);
+                document.querySelector("." + elem).src = image;
+            }
+
+            function changeImageBack(elem, image) //Den function som ændrer tilbage til oprindelige billede med mouseout
+            {
+                console.log(elem);
+                document.querySelector("." + elem).src = image;
+            }
+
+            function visSingle(product) //Popup-funktionen
+            {
+                console.log(product.description);
+                document.querySelector("#popup #description").innerHTML = product.description;
+                document.querySelector("#popup #popup_h2").innerHTML = product.headline;
+                document.querySelector("#popup .price_popup").innerHTML = product.price;
+                document.querySelector("#popup .photo_popup").src = product.photo.guid;
+                document.querySelector("#popup").style.display = "block";
+                document.querySelector(".button_buy").style.display = "block";
+                document.querySelector("footer").style.display = "none";
+                document.querySelector("#popup #close").addEventListener("click", close);
+            }
+
+            function close() //For at popup skal lukkes når man trykker på close-knappen
+            {
+                document.querySelector("#popup").style.display = "none";
+                document.querySelector("footer").style.display = "block";
+
+            }
+        </script>
+
+    </main>
+
+    <footer>
+        <div class="container_footer">
+            <a class="footer_newsletter" href="">STAY UP TO DATE - SIGN UP TO MY NEWSLETTER <span style="border-bottom: 2px solid black">HERE</span></a>
+            <p class="footer_mail">enaes@gmail.com</p>
+            <p class="footer_tlf">tlf. 00 00 00 00</p>
+        </div>
+        <!--Alt untaget Instagram-ikonet er i en egen container, sådan at det kan bruges grid til at placere iconet til højre for resten af indholdet -->
+        <a class="instaicon" href="https://www.instagram.com/maria.enaes/"></a>
+
+    </footer>
+
+</body>
+
+</html>

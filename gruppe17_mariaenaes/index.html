@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”description” content=”Ceramist Maria Enaes of Enaes Ceramics makes unique, handmade pottery with quality materials and techniques. Take a look at her website to learn more about her exceptional work.”>
+    <title>Maria Enaes Ceramics - Unique Pottery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="192x192" href="favicon/192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/16x16.png">
+
+    <style>
+
+        /***ANIMATIONER***/
+        
+        @keyframes background {
+        from {background-color: rgba(250, 250, 250, 1);}
+         to {background-color: rgba(250, 250, 210, 0);}
+         }
+        
+         @keyframes font {
+        from {color: rgba(255, 255, 255, 0);}
+         to {color: black;}
+         }
+        
+       /*********/ 
+        
+        
+        main {
+            animation-name: background;
+            animation-duration: 5s;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .button_shop a:hover {
+            border-width: medium;
+            
+        }
+        
+        #index_container {
+            min-height: 120vh;
+     
+        }
+        
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            z-index: -1;
+}
+        
+        .container_headline {
+            height: 5vw;
+            margin-top: 300px;
+        }
+        
+        h1, h2 {
+            text-align: center; 
+            margin-top: 7vw;
+            font-family: 'viceroyregular';
+            font-size: 1.8rem;
+            letter-spacing: 0.2rem;
+            animation-name: font;
+            animation-duration: 6s;
+            
+        }
+        
+        .button_shop {
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .button_shop a {
+            text-decoration: none;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            border: 0.1px #000 solid;
+            padding: 15px;
+            font-size: 1rem;
+            
+            
+        }
+        
+        @media only screen and (min-width: 650px) {
+            
+            .container_headline {
+               margin-top: 200px;
+            }
+            
+            h1, h2 {
+                font-size: 2.5rem;
+                margin-top: 0vw;
+            }
+        }
+            
+        
+        @media only screen and (min-width: 800px) {
+                 
+            .container_headline {
+               margin-top: 210;
+            }
+        
+              #index_container {
+            max-height: 100vh;
+                 }
+        }
+            
+        
+    </style>
+</head>
+
+<body>
+    <!--I Index kommer main efter body, og i motsetning til de andre sider er header indunder main - fordi videoen skal dekke hele sitet-->
+    <main>
+        <div id="index_container">
+            <video autoplay muted loop id="myVideo">
+                <source src="aaa.mp4" type="video/mp4">
+            </video>
+
+            <header>
+                <div class="logo">
+                    <a href="index.html"></a>
+                </div>
+
+                <ul class="menu">
+                    <a href="webshop.html">Shop</a>
+                    <a href="about.html">About me</a>
+                    <a href="blog.html">Blog</a>
+                </ul>
+
+
+                <div class="header_mobil">
+                    <div class="burgermenu">
+
+                        <nav id="menuToggle">
+                            <input type="checkbox" />
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <ul class="burger">
+                                <a class="burger_shop" href="webshop.html">
+                                    <li>Shop</li>
+                                </a>
+                                <a class="burger_about" href="about.html">
+                                    <li>About me</li>
+                                </a>
+                                <a class="burger_blog" href="blog.html">
+                                    <li>Blog</li>
+                                </a>
+                                <a href="index.html">
+                                </a>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+
+                <div class="shoppingbag">
+                    <a href="order.html"></a>
+                </div>
+            </header>
+
+
+            <div class="container_headline">
+                <h1>MARIA ENAES</h1>
+                <h2>CERAMICS</h2>
+                <div class="button_shop">
+                    <a href="webshop.html">TAKE A LOOK AT MY WORK</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container_footer">
+            <a class="footer_newsletter" href="">STAY UP TO DATE - SIGN UP TO MY NEWSLETTER <span style="border-bottom: 2px solid black">HERE</span></a>
+            <p class="footer_mail">enaes@gmail.com</p>
+            <p class="footer_tlf">tlf. 00 00 00 00</p>
+        </div>
+        <div>
+            <a class="instaicon" href="https://www.instagram.com/maria.enaes/"></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
